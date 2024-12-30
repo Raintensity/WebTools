@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS",
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"baseUrl": "./src/",
+		"strict": true,
+		"noEmit": true,
+		"noImplicitOverride": true,
+		"target": "esnext",
+		"isolatedModules": true,
+		"esModuleInterop": true,
+	},
+	"include": [
+		"src/**/*",
+	]
+}
