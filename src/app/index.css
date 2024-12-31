@@ -1,0 +1,45 @@
+[data-scope="index"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+
+		&>*>a {
+			display: block;
+			height: 100%;
+			background-color: color-mix(in srgb, var(--color-bg) 90%, var(--color-fg));
+			padding: 10px;
+			text-decoration: none;
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: color-mix(in srgb, var(--color-bg) 75%, var(--color-fg));
+				}
+			}
+		}
+
+		&>*>a>*:has(+*) {
+			margin-bottom: 5px;
+		}
+
+		h3 {
+			font-size: 18px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+
+	*~* {
+		margin-top: 5px;
+	}
+}

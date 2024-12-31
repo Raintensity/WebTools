@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebTools</title>
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: inherit;
+			margin: 0;
+		}
+
+		:root {
+			color-scheme: only light dark;
+			--color-theme: #0b6985;
+			--color-bg: light-dark(#ddd, #333);
+			--color-fg: light-dark(#333, #ccc);
+			--color-hl: light-dark(#000, #fff);
+			--color-ln: light-dark(#06c, #4cf);
+		}
+
+		html {
+			box-sizing: border-box;
+			line-height: 1.15;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-text-size-adjust: 100%;
+		}
+
+		body {
+			color: var(--color-fg);
+			background-color: var(--color-bg);
+			overflow-wrap: anywhere;
+			word-break: normal;
+			line-break: strict;
+		}
+
+		button,
+		input,
+		optgroup,
+		select,
+		textarea {
+			font-family: inherit;
+			font-size: 100%;
+			line-height: 1.15;
+		}
+
+		a {
+			color: var(--color-ln);
+		}
+
+		#root:has(#global-header) {
+			margin-top: 30px;
+		}
+
+		#global-header {
+			color: #fff;
+			background-color: color-mix(in srgb, transparent 25%, var(--color-theme));
+			backdrop-filter: blur(5px);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 30px;
+			user-select: none;
+
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+
+			&>ul {
+				display: flex;
+				height: 100%;
+				padding: 0;
+
+				&.center {
+					width: 1000px;
+					margin: 0 auto;
+				}
+
+				li {
+					height: 100%;
+					list-style-type: none;
+
+					:where(&>a, &:not(:has(a))) {
+						padding: 0 10px;
+						height: 100%;
+						display: grid;
+						place-items: center;
+					}
+
+					@media (hover: hover) {
+						&>a:hover {
+							background-color: color-mix(in srgb, transparent 75%, #fff);
+						}
+					}
+				}
+			}
+
+			&:has(~#content.fixed-width)>ul {
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			h2 {
+				font-size: 20px;
+			}
+		}
+
+		#content.fixed-width {
+			width: 1000px;
+			margin: 0 auto;
+			padding: 10px;
+		}
+	</style>
+	<script type="module" src="/main.js"></script>
+</head>
+
+<body>
+	<div id="root"></div>
+</body>
+
+</html>

@@ -20,7 +20,8 @@ const builder = async pathStr => {
 				do_not_minify_doctype: true,
 				ensure_spec_compliant_unquoted_attribute_values: true,
 				keep_closing_tags: true,
-				keep_spaces_between_attributes: true
+				keep_spaces_between_attributes: true,
+				minify_css: true
 			}));
 			break;
 	}
