@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
+    "@minify-html/node": "^0.15.0",
     "esbuild": "^0.24.2",
     "preact": "^10.25.4"
   },
@@ -14,5 +15,8 @@
     "dev": "node ./scripts/dev"
   },
   "author": "Raintensity",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^4.0.3"
+  }
 }
