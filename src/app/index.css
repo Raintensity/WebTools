@@ -39,7 +39,11 @@
 		}
 	}
 
-	*~* {
+	&>*~* {
 		margin-top: 5px;
+	}
+
+	h2~h2 {
+		margin-top: 15px;
 	}
 }
