@@ -111,6 +111,29 @@
 			}
 		}
 
+		#global-header-minimal {
+			position: fixed;
+			top: 0;
+			right: 0;
+			background-color: color-mix(in srgb, transparent 25%, var(--color-theme));
+
+			a {
+				display: grid;
+				place-items: center;
+				width: 30px;
+				height: 30px;
+				color: #fff;
+				text-decoration: none;
+				user-select: none;
+
+				@media (hover: hover) {
+					&:hover {
+						background-color: color-mix(in srgb, transparent 75%, #fff);
+					}
+				}
+			}
+		}
+
 		#content.fixed-width {
 			width: 1000px;
 			margin: 0 auto;
