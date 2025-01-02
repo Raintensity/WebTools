@@ -1,0 +1,65 @@
+[data-scope="transport-jreast-shinkansen"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	table {
+		border-collapse: collapse;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+			padding: 2px 5px;
+		}
+
+		tr.active {
+			background-color: color-mix(in srgb, var(--color-theme) 50%, var(--color-bg));
+		}
+
+		tr:not(.active):hover {
+			background-color: color-mix(in srgb,var(--color-bg) 80%,var(--color-fg));
+		}
+
+		td.center {
+			text-align: center;
+		}
+
+		td.right {
+			text-align: right;
+		}
+	}
+
+	p:has(label) {
+		margin-bottom: 5px;
+	}
+
+	label {
+		display: inline-block;
+		accent-color: var(--color-theme);
+
+		&:has(>input:checked) {
+			color: var(--color-hl);
+		}
+
+		&+label {
+			margin-left: 10px;
+		}
+	}
+
+	ul {
+		padding-left: 1.5em;
+	}
+
+	em strong {
+		font-style: normal;
+		color: #f44;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+}
