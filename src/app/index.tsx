@@ -5,6 +5,17 @@ import { AppModuleMeta } from "lib/const";
 export const App = () => (
 	<BaseLayout scope="index" isCentering={true}>
 		<h1>WebTools</h1>
+
+		<h2>時間系</h2>
+		<div class="grid">
+			<div>
+				<AppLink app="time-clock">
+					<h3>時計</h3>
+					<p>ウィンドウに合わせたフォントサイズの時計</p>
+				</AppLink>
+			</div>
+		</div>
+
 		<h2>交通系</h2>
 		<div class="grid">
 			<div>
