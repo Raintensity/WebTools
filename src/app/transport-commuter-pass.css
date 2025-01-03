@@ -1,0 +1,53 @@
+[data-scope="transport-commuter-pass"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	dl {
+		dt {
+			font-weight: bold;
+		}
+
+		dt~dt {
+			margin-top: 10px;
+		}
+
+		dd {
+			display: grid;
+			grid-template-columns: 200px 1fr;
+			align-items: center;
+			gap: 10px;
+			margin-top: 5px;
+
+			input {
+				width: 100%;
+				text-align: right;
+				padding: 8px 10px;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				appearance: none;
+				margin: 0;
+			}
+		}
+	}
+
+	ul {
+		padding-left: 1.5em;
+	}
+
+	em strong {
+		font-style: normal;
+		color: #f44;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+}

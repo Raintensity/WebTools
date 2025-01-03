@@ -19,6 +19,12 @@ export const App = () => (
 		<h2>交通系</h2>
 		<div class="grid">
 			<div>
+				<AppLink app="transport-commuter-pass">
+					<h3>普通乗車券と定期券の比較計算</h3>
+					<p>何回以上の利用で定期券の方がお得になるのかを計算</p>
+				</AppLink>
+			</div>
+			<div>
 				<AppLink app="transport-inner-yamanote">
 					<h3>山手線内運賃表</h3>
 					<p>東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成</p>
