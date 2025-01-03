@@ -1,9 +1,10 @@
 import { PreactDOMAttributes, render as preactRender } from "preact";
 import { Dispatch, Suspense, useState } from "preact/compat";
 import { StateUpdater } from "preact/hooks";
+import { AppModule } from "lib/const";
+import { ErrorPage } from "./parts/error";
 import { GlobalHeader } from "./parts/header";
 import { GlobalLoading } from "./parts/loading";
-import { AppModule } from "lib/const";
 // import "preact/debug";
 
 interface AppRouterProps extends PreactDOMAttributes {
@@ -18,11 +19,23 @@ const AppRouter = (props: AppRouterProps) => {
 	let appStyle: string | null | undefined = undefined;
 	const Application = () => {
 		if (appModule === undefined) {
-			throw import("../app/" + page + ".tsx")
-				.then(e => appModule = e)
+			// throw import("../app/" + page + ".tsx")
+			// 	.then(e => appModule = e)
+			// 	.catch(_ => appModule = null);
+			throw new Promise((resolve, reject) => {
+				try {
+					resolve(import("../app/" + page + ".tsx"));
+				} catch {
+					reject();
+				}
+			})
+				.then(e => appModule = e as AppModule)
 				.catch(_ => appModule = null);
 		}
-		if (appModule === null) return <p>Error</p>;//TODO
+		if (appModule === null) {
+			props.setMinimalHeader(false);
+			return (<ErrorPage />);
+		}
 
 		const App = appModule.App;
 		props.setMinimalHeader(appModule.meta?.minimalGlobalHeader ?? false);
