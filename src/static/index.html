@@ -139,6 +139,24 @@
 			margin: 0 auto;
 			padding: 10px;
 		}
+
+		.loading {
+			width: 80px;
+			padding: 10px;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background-color: var(--color-theme);
+			--a: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+			mask: var(--a);
+			mask-composite: subtract;
+			animation: rotate 1s infinite linear;
+		}
+
+		@keyframes rotate {
+			to {
+				transform: rotate(1turn);
+			}
+		}
 	</style>
 	<script type="module" src="/main.js"></script>
 </head>

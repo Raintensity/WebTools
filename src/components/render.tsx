@@ -2,6 +2,7 @@ import { PreactDOMAttributes, render as preactRender } from "preact";
 import { Dispatch, Suspense, useState } from "preact/compat";
 import { StateUpdater } from "preact/hooks";
 import { GlobalHeader } from "./parts/header";
+import { GlobalLoading } from "./parts/loading";
 import { AppModule } from "lib/const";
 // import "preact/debug";
 
@@ -41,7 +42,7 @@ const AppRouter = (props: AppRouterProps) => {
 	};
 
 	return (
-		<Suspense fallback="Loading">
+		<Suspense fallback={<GlobalLoading />}>
 			<Application />
 		</Suspense>
 	);
