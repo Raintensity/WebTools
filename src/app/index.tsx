@@ -31,6 +31,10 @@ export const App = () => (
 				</AppLink>
 			</div>
 		</div>
+
+		<h2>更新情報</h2>
+		<div class="grid-table">
+		</div>
 	</BaseLayout>
 );
 

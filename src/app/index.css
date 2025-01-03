@@ -39,6 +39,22 @@
 		}
 	}
 
+	.grid-table {
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: 1px;
+		background-color: color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+
+		&>* {
+			background-color: var(--color-bg);
+			padding: 5px 10px;
+
+			&:nth-child(2n+1) {
+				text-align: center;
+			}
+		}
+	}
+
 	&>*~* {
 		margin-top: 5px;
 	}
