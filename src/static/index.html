@@ -52,7 +52,7 @@
 			color: var(--color-ln);
 		}
 
-		#root:has(#global-header) {
+		#root:has(#global-header:not(.layered)) {
 			margin-top: 30px;
 		}
 
@@ -91,6 +91,7 @@
 						height: 100%;
 						display: grid;
 						place-items: center;
+						min-width: 40px;
 					}
 
 					@media (hover: hover) {
@@ -156,6 +157,11 @@
 			to {
 				transform: rotate(1turn);
 			}
+		}
+
+		#copyright {
+			font-size: 12px;
+			text-align: center;
 		}
 	</style>
 	<script type="module" src="/main.js"></script>

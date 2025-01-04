@@ -84,7 +84,7 @@ const calc = (normalStr: string, passStr: string, month: number): ResultStruct =
 	if (checkNormalFare(normalStr)?.error) return { error: "" };
 	const normal = parseInt(normalStr);
 
-	if (normal > pass) return { error: "定期券代よりも運賃の方が高額です" };
+	if (normal > pass) return { error: "定期券代よりも乗車券代の方が高額です" };
 	return {
 		oneWay: numProc(pass / normal),
 		roundTrip: numProc(pass / normal / 2),

@@ -34,14 +34,15 @@ export const GlobalHeader = (props: GlobalHeaderProps) => {
 	if (isMinimal) {
 		return <Minimal changeState={changeState} />;
 	}
-	return <Full changeState={changeState} />;
+	return <Full changeState={changeState} isLayered={props.isForceMinimal} />;
 };
 
 interface HeaderProps extends PreactDOMAttributes {
 	changeState: () => void
+	isLayered?: boolean
 }
 const Full = (props: HeaderProps) => (
-	<div id="global-header">
+	<div id="global-header" class={props.isLayered ? "layered" : ""}>
 		<ul>
 			<li><AppLink><h2>WebTools</h2></AppLink></li>
 			<li style="flex:1"></li>

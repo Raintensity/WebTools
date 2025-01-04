@@ -27,7 +27,7 @@ export const App = () => {
 	);
 };
 
-const render = (canvas: HTMLCanvasElement, timeStr?: string) => {
+const render = (canvas: HTMLCanvasElement, timeStr: string) => {
 	if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
@@ -37,16 +37,14 @@ const render = (canvas: HTMLCanvasElement, timeStr?: string) => {
 	if (!ctx) return;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	if (timeStr) {
-		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		const textColor = isDarkMode ? "#ccc" : "#333";
+	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	const textColor = isDarkMode ? "#ccc" : "#333";
 
-		ctx.font = canvas.dataset.fontSize + "px 'Hiragino Sans',sans-serif";
-		ctx.textBaseline = "middle";
-		ctx.textAlign = "center";
-		ctx.fillStyle = textColor;
-		ctx.fillText(timeStr, canvas.width / 2, canvas.height / 2);
-	}
+	ctx.font = canvas.dataset.fontSize + "px 'Hiragino Sans',sans-serif";
+	ctx.textBaseline = "middle";
+	ctx.textAlign = "center";
+	ctx.fillStyle = textColor;
+	ctx.fillText(timeStr, canvas.width / 2, canvas.height / 2);
 };
 
 const offset = new Date().getTimezoneOffset() * 60 * 1000;

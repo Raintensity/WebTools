@@ -1,5 +1,5 @@
 import { PreactDOMAttributes } from "preact";
-import { Dispatch, StateUpdater, useEffect, useState } from "preact/hooks";
+import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
 
@@ -13,6 +13,7 @@ export const App = () => (
 		<ul>
 			<li>営業キロベースで独自に計算しているため、<em><strong>内容の正確性については保証しません</strong></em>。実際のご利用の際には、必ず信憑性のあるデータを合わせてご確認ください。</li>
 			<li>乗車券料金について、東京-大宮間の東京山手線内・電車特定区間制度は適用していません。この区間のみの乗車券は表記よりも少し安くなります。</li>
+			<li>Altキー押下中は始点駅の選択が切り替わりません。</li>
 		</ul>
 
 		<h2>データ出典</h2>
@@ -49,13 +50,13 @@ const Calculator = () => {
 	const [currentLine, setCurrentLine] = useState(0);
 	const [currentStation, setCurrentStation] = useState(440101);
 
-	const changeLine = (e: InputEvent) => {
+	const changeLine = useCallback((e: InputEvent) => {
 		if (!(e.target instanceof HTMLInputElement)) return;
 		setCurrentLine(parseInt(e.target.value));
 		if (!lines[parseInt(e.target.value)].stations.includes(currentStation)) {
 			setCurrentStation(440101);
 		}
-	};
+	}, [currentStation]);
 
 	return (<>
 		<p>
@@ -94,6 +95,7 @@ const TableBody = (props: TableBodyProps) => {
 	const changeStation = (e: MouseEvent) => {
 		if (!(e.currentTarget instanceof HTMLTableRowElement)) return;
 		if (!e.currentTarget.dataset.station) return;
+		if (e.altKey) return;
 		props.setStationHandler(parseInt(e.currentTarget.dataset.station));
 	};
 

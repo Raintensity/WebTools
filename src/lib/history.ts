@@ -6,7 +6,10 @@ export const getAppUrl = (app?: string | null) => {
 };
 
 export const goApp = (app?: string) => {
-	window.history.pushState(null, "", getAppUrl(app));
+	const currentUrl = new URL(window.location.href);
+	const url = getAppUrl(app);
+	if (currentUrl.pathname + currentUrl.search === url) return;
+	window.history.pushState(null, "", url);
 	render();
 };
 

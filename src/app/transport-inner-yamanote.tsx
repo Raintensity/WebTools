@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "preact/compat";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
 
@@ -34,22 +34,21 @@ export const App = () => (
 	</BaseLayout>
 );
 
+const colorThemeMediaQuery = "(prefers-color-scheme: dark)";
 const Canvas = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [station, setStation] = useState(440101);
+	const [isDarkMode, setDarkMode] = useState(window.matchMedia(colorThemeMediaQuery).matches);
 
-	const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-	const [isDarkMode, setDarkMode] = useState(matchMedia.matches);
-
-	const themeChangeEvent = (e: MediaQueryListEvent) => {
+	const themeChangeEvent = useCallback((e: MediaQueryListEvent) => {
 		setDarkMode(e.matches);
-	};
+	}, []);
 
 	useEffect(() => {
 		if (!canvasRef.current) return;
-		matchMedia.addEventListener("change", themeChangeEvent);
+		window.matchMedia(colorThemeMediaQuery).addEventListener("change", themeChangeEvent);
 		render(canvasRef.current, station);
-		return () => matchMedia.removeEventListener("change", themeChangeEvent);
+		return () => window.matchMedia(colorThemeMediaQuery).removeEventListener("change", themeChangeEvent);
 	}, [canvasRef]);
 
 	useEffect(() => {
@@ -57,10 +56,10 @@ const Canvas = () => {
 		render(canvasRef.current, station);
 	}, [station, isDarkMode]);
 
-	const clickEvent: MouseEventHandler<HTMLCanvasElement> = (e) => {
+	const clickEvent: MouseEventHandler<HTMLCanvasElement> = useCallback((e) => {
 		const code = getClickedStation(e);
 		if (code) setStation(code);
-	};
+	}, []);
 
 	return (
 		<canvas ref={canvasRef} onClick={clickEvent} width="700" height="700"></canvas>
