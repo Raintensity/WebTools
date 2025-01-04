@@ -3,6 +3,12 @@ import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
 
+export const meta: AppModuleMeta = {
+	hasCSS: true,
+	title: "山手線内運賃表",
+	description: "東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成"
+};
+
 export const App = () => (
 	<BaseLayout scope="transport-inner-yamanote" isCentering={true}>
 		<h1>山手線内運賃表</h1>
@@ -328,8 +334,4 @@ const getClickedStation = (e: MouseEvent) => {
 	const eventStation = eventList.find(v => v.x <= x && x <= v.x + v.w && v.y <= y && y <= v.y + v.h);
 	if (!eventStation) return null;
 	return eventStation.code;
-};
-
-export const meta: AppModuleMeta = {
-	hasCSS: true
 };

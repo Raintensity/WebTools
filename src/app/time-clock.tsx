@@ -2,6 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { AppModuleMeta } from "lib/const";
 import { zPad } from "lib/util";
 
+export const meta: AppModuleMeta = {
+	minimalGlobalHeader: true,
+	title: "時計",
+	description: "ウィンドウに合わせたフォントサイズの時計"
+};
+
 export const App = () => {
 	const clockCanvasRef = useRef<HTMLCanvasElement>(null);
 	const [timeStr, setTimeStr] = useState(format(Date.now()));
@@ -78,8 +84,4 @@ const setAnimationFrame = (callback: () => void) => {
 		id.current = window.requestAnimationFrame(loop);
 		return () => window.cancelAnimationFrame(id.current);
 	}, [loop]);
-};
-
-export const meta: AppModuleMeta = {
-	minimalGlobalHeader: true
 };

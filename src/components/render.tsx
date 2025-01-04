@@ -46,6 +46,14 @@ const AppRouter = (props: AppRouterProps) => {
 				.catch(() => appStyle = null);
 		}
 
+		document.title = (appModule.meta?.title ? appModule.meta?.title + " - " : "") + "WebTools";
+		(document.querySelector("meta[name='description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
+		(document.querySelector("meta[property='og:title']") as HTMLMetaElement).content = appModule.meta?.title ?? "WebTools";
+		(document.querySelector("meta[property='og:url']") as HTMLMetaElement).content = window.location.href;
+		(document.querySelector("meta[property='og:description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
+		(document.querySelector("meta[name='twitter:title']") as HTMLMetaElement).content = appModule.meta?.title ?? "WebTools";
+		(document.querySelector("meta[name='twitter:description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
+
 		return (
 			<>
 				{appStyle && <style>{appStyle}</style>}

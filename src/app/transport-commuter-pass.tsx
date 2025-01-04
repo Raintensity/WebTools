@@ -3,6 +3,12 @@ import { AppModuleMeta } from "lib/const";
 import { PreactDOMAttributes } from "preact";
 import { useState } from "preact/hooks";
 
+export const meta: AppModuleMeta = {
+	hasCSS: true,
+	title: "普通乗車券と定期券の比較計算",
+	description: "何回以上の利用で定期券の方がお得になるのかを計算"
+};
+
 export const App = () => (
 	<BaseLayout scope="transport-commuter-pass" isCentering={true}>
 		<h1>普通乗車券と定期券の比較計算</h1>
@@ -99,8 +105,4 @@ const checkNormalFare = (normalStr: string) => {
 	const normal = parseInt(normalStr);
 	if (normal <= 0) return { error: "乗車券代が0円以下では計算できません" };
 	if (!Number.isSafeInteger(normal)) return { error: "乗車券代に入力可能な数値を超えています" };
-};
-
-export const meta: AppModuleMeta = {
-	hasCSS: true
 };

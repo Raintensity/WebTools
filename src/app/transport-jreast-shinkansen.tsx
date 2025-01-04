@@ -3,6 +3,12 @@ import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
 
+export const meta: AppModuleMeta = {
+	hasCSS: true,
+	title: "JR東日本 新幹線運賃比較表",
+	description: "JR東日本の新幹線の任意の駅を起点とした乗車券・特急券・JREポイント利用の比較計算"
+};
+
 export const App = () => (
 	<BaseLayout scope="transport-jreast-shinkansen" isCentering={true}>
 		<h1>JR東日本 新幹線運賃比較表</h1>
@@ -485,8 +491,4 @@ const calcDistanceList = (a: number) => {
 		}
 	}
 	return result;
-};
-
-export const meta: AppModuleMeta = {
-	hasCSS: true
 };

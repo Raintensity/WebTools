@@ -8,4 +8,6 @@ export interface AppModule {
 export interface AppModuleMeta {
 	hasCSS?: boolean
 	minimalGlobalHeader?: boolean
+	title?: string
+	description?: string
 }

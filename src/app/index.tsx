@@ -2,6 +2,11 @@ import { BaseLayout } from "components/layout";
 import { AppLink } from "components/tags/applink";
 import { AppModuleMeta } from "lib/const";
 
+export const meta: AppModuleMeta = {
+	hasCSS: true,
+	description: "様々な計算ができるツール置き場"
+};
+
 export const App = () => (
 	<BaseLayout scope="index" isCentering={true}>
 		<h1>WebTools</h1>
@@ -43,7 +48,3 @@ export const App = () => (
 		</div>
 	</BaseLayout>
 );
-
-export const meta: AppModuleMeta = {
-	hasCSS: true
-};
