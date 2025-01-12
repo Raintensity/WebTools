@@ -12,6 +12,10 @@
 		grid-template-columns: repeat(3, 1fr);
 		gap: 10px;
 
+		@media screen and (max-width: 1000px) {
+			grid-template-columns: 1fr;
+		}
+
 		&>*>a {
 			display: block;
 			height: 100%;

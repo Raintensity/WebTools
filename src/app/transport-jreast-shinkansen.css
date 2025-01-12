@@ -8,6 +8,11 @@
 		margin-top: 15px;
 	}
 
+	div:has(>table) {
+		text-align: center;
+		overflow-x: auto;
+	}
+
 	table {
 		border-collapse: collapse;
 

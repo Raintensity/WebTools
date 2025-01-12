@@ -91,6 +91,10 @@
 				&.center {
 					width: 1000px;
 					margin: 0 auto;
+
+					@media screen and (max-width: 1000px) {
+						width: 100%;
+					}
 				}
 
 				li {
@@ -116,6 +120,10 @@
 			&:has(~#content.fixed-width)>ul {
 				width: 1000px;
 				margin: 0 auto;
+
+				@media screen and (max-width: 1000px) {
+					width: 100%;
+				}
 			}
 
 			h2 {
@@ -150,6 +158,10 @@
 			width: 1000px;
 			margin: 0 auto;
 			padding: 10px;
+
+			@media screen and (max-width: 1000px) {
+				width: 100%;
+			}
 		}
 
 		.loading {

@@ -73,21 +73,23 @@ const Calculator = () => {
 				</label>
 			))}
 		</p>
-		<table>
-			<colgroup>
-				<col style={{ width: "150px" }} />
-				<col style={{ width: "110px" }} />
-				<col style={{ width: "110px" }} />
-				<col style={{ width: "110px" }} />
-				<col style={{ width: "110px" }} />
-				<col style={{ width: "110px" }} />
-				<col style={{ width: "110px" }} />
-			</colgroup>
-			<thead>
-				{["駅名", "営業キロ", ...fare.map(e => e.name)].map(item => <th>{item}</th>)}
-			</thead>
-			<tbody><TableBody line={currentLine} station={currentStation} setStationHandler={setCurrentStation} /></tbody>
-		</table>
+		<div>
+			<table style={{ width: "810px" }}>
+				<colgroup>
+					<col style={{ width: "150px" }} />
+					<col style={{ width: "110px" }} />
+					<col style={{ width: "110px" }} />
+					<col style={{ width: "110px" }} />
+					<col style={{ width: "110px" }} />
+					<col style={{ width: "110px" }} />
+					<col style={{ width: "110px" }} />
+				</colgroup>
+				<thead>
+					{["駅名", "営業キロ", ...fare.map(e => e.name)].map(item => <th>{item}</th>)}
+				</thead>
+				<tbody><TableBody line={currentLine} station={currentStation} setStationHandler={setCurrentStation} /></tbody>
+			</table>
+		</div>
 	</>);
 };
 
