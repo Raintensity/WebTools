@@ -19,7 +19,7 @@ export const App = () => {
 		const canvas = clockCanvasRef.current; // Not good
 		const reRender = () => render(canvas, format(Date.now())); // Not good
 		window.addEventListener("resize", reRender);
-		() => window.removeEventListener("resize", reRender);
+		return () => window.removeEventListener("resize", reRender);
 	}, [clockCanvasRef]);
 
 	useEffect(() => {
