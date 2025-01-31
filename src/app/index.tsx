@@ -36,6 +36,12 @@ export const App = () => (
 				</AppLink>
 			</div>
 			<div>
+				<AppLink app="transport-inner-yamanote-2026">
+					<h3>山手線内運賃表(2026春～)</h3>
+					<p>東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成 ※2026春以降の運賃</p>
+				</AppLink>
+			</div>
+			<div>
 				<AppLink app="transport-jreast-shinkansen">
 					<h3>JR東日本 新幹線運賃比較表</h3>
 					<p>JR東日本の新幹線の任意の駅を起点とした乗車券・特急券・JREポイント利用の比較計算</p>

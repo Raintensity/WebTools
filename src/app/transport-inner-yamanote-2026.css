@@ -1,0 +1,31 @@
+[data-scope="transport-inner-yamanote-2026"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	ul {
+		padding-left: 1.5em;
+	}
+
+	div:has(>canvas) {
+		text-align: center;
+		overflow-x: auto;
+	}
+
+	em strong {
+		font-style: normal;
+		color: #f44;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+
+	h2~h2 {
+		margin-top: 15px;
+	}
+}
