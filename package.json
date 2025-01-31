@@ -1,21 +1,20 @@
 {
-  "name": "webtools",
   "version": "1.0.0",
+  "name": "webtools",
+  "description": "Web道具箱 website",
+  "author": "Raintensity",
+  "license": "MIT",
   "type": "module",
-  "dependencies": {
-    "@minify-html/node": "^0.15.0",
-    "esbuild": "^0.24.2",
-    "preact": "^10.25.4"
-  },
-  "description": "Web Tools",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./scripts/build",
     "dev": "node ./scripts/dev"
   },
-  "author": "Raintensity",
-  "license": "MIT",
+  "dependencies": {
+    "@minify-html/node": "^0.15.0",
+    "esbuild": "^0.24.2",
+    "preact": "^10.25.4"
+  },
   "devDependencies": {
     "chokidar": "^4.0.3"
   }

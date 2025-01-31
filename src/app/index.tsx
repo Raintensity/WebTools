@@ -9,7 +9,7 @@ export const meta: AppModuleMeta = {
 
 export const App = () => (
 	<BaseLayout scope="index" isCentering={true}>
-		<h1>WebTools</h1>
+		<h1>Web道具箱</h1>
 
 		<h2>時間系</h2>
 		<div class="grid">
@@ -49,8 +49,16 @@ export const App = () => (
 			</div>
 		</div>
 
+		<h2>当サイトについて</h2>
+		<p>ジャンルを問わず、様々な計算ができるツール置き場です。すべてWebブラウザで動作し、入力内容はサーバへ送信されません。</p>
+		<p>万が一動作がおかしくなってしまった場合は、ページのリロードをお試しください。</p>
+		<p>すべてのソースコードは<a href="https://github.com/Raintensity/WebTools" target="_blank" rel="noopener noreferrer">GitHub</a>上に公開しており、自由にソースを閲覧できます(ライセンスはMIT)。</p>
+		<p><a href="https://blog.usx.jp/">管理者のブログはこちら</a></p>
+
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/02/01</p>
+			<p><AppLink app="time-clock">時計</AppLink>、<AppLink app="transport-commuter-pass">普通乗車券と定期券の比較計算</AppLink>、<AppLink app="transport-inner-yamanote">山手線内運賃表</AppLink>(<AppLink app="transport-inner-yamanote-2026">2026春～</AppLink>)、<AppLink app="transport-jreast-shinkansen">JR東日本 新幹線運賃比較表</AppLink>&nbsp;公開</p>
 		</div>
 	</BaseLayout>
 );

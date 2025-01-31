@@ -44,7 +44,7 @@ interface HeaderProps extends PreactDOMAttributes {
 const Full = (props: HeaderProps) => (
 	<div id="global-header" class={props.isLayered ? "layered" : ""}>
 		<ul>
-			<li><AppLink><h2>WebTools</h2></AppLink></li>
+			<li><AppLink><h2>Web道具箱</h2></AppLink></li>
 			<li style="flex:1"></li>
 			<li><a href="https://github.com/Raintensity/WebTools" target="_blank" rel="noopener noreferrer"><img src="/assets/img/common/github.svg" alt="GitHub" width="20" height="20" /></a></li>
 			<li><a href="#" onClick={props.changeState}>&#x23f5;</a></li>
