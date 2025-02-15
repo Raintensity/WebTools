@@ -1,0 +1,66 @@
+[data-scope="generate-random-string"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	div.flex-pc {
+		display: flex;
+		gap: 10px;
+
+		&>* {
+			flex: 1;
+		}
+
+		@media screen and (max-width: 1000px) {
+			display: block;
+		}
+	}
+
+	dl {
+		dt~dt {
+			margin-top: 10px;
+		}
+
+		dd {
+			margin-top: 5px;
+			margin-left: 10px;
+			padding: 5px;
+			background-color: color-mix(in srgb, var(--color-theme) 25%, var(--color-bg));
+
+			label {
+				display: inline-block;
+
+				&:has(+label) {
+					margin-right: 10px;
+				}
+			}
+
+			input[type="text"],
+			input[type="number"] {
+				width: 100%;
+				padding: 8px 10px;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				appearance: none;
+				margin: 0;
+			}
+		}
+
+		input {
+			accent-color: var(--color-theme);
+			display: inline-block;
+			margin-right: 5px;
+		}
+	}
+
+	&>div>div>*~* {
+		margin-top: 5px;
+	}
+}

@@ -21,6 +21,16 @@ export const App = () => (
 			</div>
 		</div>
 
+		<h2>生成系</h2>
+		<div class="grid">
+			<div>
+				<AppLink app="generate-random-string">
+					<h3>ランダム文字列生成</h3>
+					<p>任意の文字でランダムな文字列を生成</p>
+				</AppLink>
+			</div>
+		</div>
+
 		<h2>交通系</h2>
 		<div class="grid">
 			<div>
@@ -57,6 +67,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/02/15</p>
+			<p><AppLink app="generate-random-string">ランダム文字列生成</AppLink>&nbsp;公開</p>
 			<p>2025/02/01</p>
 			<p><AppLink app="time-clock">時計</AppLink>、<AppLink app="transport-commuter-pass">普通乗車券と定期券の比較計算</AppLink>、<AppLink app="transport-inner-yamanote">山手線内運賃表</AppLink>(<AppLink app="transport-inner-yamanote-2026">2026春～</AppLink>)、<AppLink app="transport-jreast-shinkansen">JR東日本 新幹線運賃比較表</AppLink>&nbsp;公開</p>
 		</div>
