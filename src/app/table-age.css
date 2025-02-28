@@ -1,0 +1,35 @@
+[data-scope="table-age"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	input {
+		padding: 8px 10px;
+	}
+
+	table {
+		border-collapse: collapse;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+			padding: 3px 10px;
+
+			@media screen and (max-width: 1000px) {
+				font-size: 90%;
+			}
+		}
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+}

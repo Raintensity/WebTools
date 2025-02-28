@@ -31,6 +31,16 @@ export const App = () => (
 			</div>
 		</div>
 
+		<h2>早見表</h2>
+		<div class="grid">
+			<div>
+				<AppLink app="table-age">
+					<h3>年齢早見表</h3>
+					<p>基準日から年齢の早見表を生成</p>
+				</AppLink>
+			</div>
+			</div>
+
 		<h2>交通系</h2>
 		<div class="grid">
 			<div>
@@ -67,6 +77,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/01</p>
+			<p><AppLink app="table-age">年齢早見表</AppLink>公開</p>
 			<p>2025/02/15</p>
 			<p><AppLink app="generate-random-string">ランダム文字列生成</AppLink>&nbsp;公開</p>
 			<p>2025/02/01</p>
