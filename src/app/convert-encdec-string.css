@@ -1,0 +1,49 @@
+[data-scope="convert-encdec-string"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	:where(select, textarea) {
+		padding: 8px 10px;
+	}
+
+	div.flex-pc {
+		display: flex;
+		gap: 10px;
+
+		&>* {
+			flex: 1;
+		}
+
+		p>*+* {
+			margin-left: 10px;
+		}
+
+		textarea {
+			height: 10em;
+		}
+
+		@media screen and (max-width: 1000px) {
+			display: block;
+
+			textarea {
+				height: auto;
+				max-height: 50vh;
+				field-sizing: content;
+			}
+		}
+	}
+
+	textarea {
+		width: 100%;
+	}
+
+	&>div>div>*~* {
+		margin-top: 5px;
+	}
+}

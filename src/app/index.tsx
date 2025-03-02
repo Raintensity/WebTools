@@ -21,6 +21,16 @@ export const App = () => (
 			</div>
 		</div>
 
+		<h2>変換系</h2>
+		<div class="grid">
+			<div>
+				<AppLink app="convert-encdec-string">
+					<h3>文字列エンコーダ・デコーダ</h3>
+					<p>Base64やURL形式等にエンコード・デコード</p>
+				</AppLink>
+			</div>
+		</div>
+
 		<h2>生成系</h2>
 		<div class="grid">
 			<div>
@@ -39,7 +49,7 @@ export const App = () => (
 					<p>基準日から年齢の早見表を生成</p>
 				</AppLink>
 			</div>
-			</div>
+		</div>
 
 		<h2>交通系</h2>
 		<div class="grid">
@@ -77,8 +87,10 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/03</p>
+			<p><AppLink app="convert-encdec-string">文字列エンコーダ・デコーダ</AppLink>&nbsp;公開</p>
 			<p>2025/03/01</p>
-			<p><AppLink app="table-age">年齢早見表</AppLink>公開</p>
+			<p><AppLink app="table-age">年齢早見表</AppLink>&nbsp;公開</p>
 			<p>2025/02/15</p>
 			<p><AppLink app="generate-random-string">ランダム文字列生成</AppLink>&nbsp;公開</p>
 			<p>2025/02/01</p>
