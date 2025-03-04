@@ -1,0 +1,124 @@
+[data-scope="table-unicode"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	button {
+		user-select: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 100%;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+			padding: 3px 10px;
+			text-align: center;
+
+			@media screen and (max-width: 1000px) {
+				padding: 3px 0;
+			}
+		}
+	}
+
+	.table-main {
+		:where(th) {
+			font-size: 95%;
+			background-color: color-mix(in srgb, var(--color-bg) 80%, var(--color-fg));
+
+			&:first-child {
+				width: 80px;
+
+				@media screen and (max-width: 1000px) {
+					width: 50px;
+				}
+			}
+
+			@media screen and (max-width: 1000px) {
+				font-size: 70%;
+			}
+		}
+
+		:where(td) {
+			cursor: pointer;
+		}
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	.flex {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+
+	#select {
+		border: 2px solid var(--color-fg);
+		background-color: var(--color-bg);
+		padding: 0;
+		font-size: 90%;
+		margin: auto;
+		width: 900px;
+
+		&::backdrop {
+			backdrop-filter: blur(5px);
+		}
+
+		@media screen and (max-width: 1000px) {
+			overflow-x: auto;
+			width: 100%;
+		}
+
+		table {
+			user-select: none;
+
+			@media screen and (max-width: 1000px) {
+				width: 700px;
+			}
+		}
+
+		td {
+			padding: 0;
+			white-space: nowrap;
+
+			button {
+				all: unset;
+				box-sizing: border-box;
+				display: block;
+				width: 100%;
+				padding: 3px 10px;
+
+				&:focus {
+					outline: auto;
+				}
+			}
+
+			&.current {
+				font-weight: bold;
+				color: #f66;
+				background-color: color-mix(in srgb, var(--color-theme) 25%, transparent);
+			}
+
+			&:not(.current) {
+				@media (hover:hover) {
+					&:hover {
+						background-color: color-mix(in srgb, var(--color-bg) 80%, var(--color-fg));
+					}
+				}
+			}
+		}
+	}
+}

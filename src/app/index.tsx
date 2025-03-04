@@ -49,6 +49,12 @@ export const App = () => (
 					<p>基準日から年齢の早見表を生成</p>
 				</AppLink>
 			</div>
+			<div>
+				<AppLink app="table-unicode">
+					<h3>Unicode文字早見表</h3>
+					<p>Unicode文字の早見表を生成</p>
+				</AppLink>
+			</div>
 		</div>
 
 		<h2>交通系</h2>
@@ -87,6 +93,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/05</p>
+			<p><AppLink app="table-unicode">Unicode文字早見表</AppLink>&nbsp;公開</p>
 			<p>2025/03/03</p>
 			<p><AppLink app="convert-encdec-string">文字列エンコーダ・デコーダ</AppLink>&nbsp;公開</p>
 			<p>2025/03/01</p>
