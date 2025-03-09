@@ -1,0 +1,72 @@
+@font-face {
+	font-family: "monaspace-min";
+	src: url("/assets/font/monaspace-min.woff2");
+}
+
+[data-scope="viewer-binary"] {
+
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	input {
+		padding: 8px 10px;
+	}
+
+	table {
+		border-collapse: collapse;
+		font-family: "monaspace-min";
+		table-layout: fixed;
+		width: 100%;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+			padding: 3px 10px;
+			white-space: pre;
+			line-height: 1;
+			text-align: center;
+
+			@media screen and (max-width: 1000px) {
+				font-size: 90%;
+			}
+		}
+
+		thead > tr {
+			position: sticky;
+			top: var(--global-header, 0);
+		}
+
+		tr {
+			height: 25px;
+		}
+
+		th {
+			background-color: color-mix(in srgb, var(--color-bg) 80%, var(--color-fg));
+		}
+	}
+
+	.left {
+		text-align: left;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	.relative {
+		position: relative;
+	}
+
+	.absolute {
+		position: absolute;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+}

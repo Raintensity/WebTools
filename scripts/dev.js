@@ -73,6 +73,7 @@ const ctx = await context({
 	splitting: true,
 	format: "esm",
 	target: "esnext",
+	external: ["/assets/*"],
 });
 await ctx.watch();
 

@@ -50,6 +50,7 @@ await build({
 	splitting: true,
 	format: "esm",
 	target: "esnext",
+	external: ["/assets/*"],
 });
 
 // Copy static files

@@ -41,6 +41,16 @@ export const App = () => (
 			</div>
 		</div>
 
+		<h2>ビューア</h2>
+		<div class="grid">
+			<div>
+				<AppLink app="viewer-binary">
+					<h3>バイナリビューア</h3>
+					<p>バイナリファイルの内容を表示</p>
+				</AppLink>
+			</div>
+		</div>
+
 		<h2>早見表</h2>
 		<div class="grid">
 			<div>
@@ -93,6 +103,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/10</p>
+			<p><AppLink app="viewer-binary">バイナリビューア</AppLink>&nbsp;公開</p>
 			<p>2025/03/05</p>
 			<p><AppLink app="table-unicode">Unicode文字早見表</AppLink>&nbsp;公開</p>
 			<p>2025/03/03</p>
