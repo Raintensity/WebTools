@@ -29,6 +29,12 @@ export const App = () => (
 					<p>Base64やURL形式等にエンコード・デコード</p>
 				</AppLink>
 			</div>
+			<div>
+				<AppLink app="convert-datetime">
+					<h3>日時フォーマット変換</h3>
+					<p>日時をYMD形式やUNIX時間など、各種フォーマットに相互変換</p>
+				</AppLink>
+			</div>
 		</div>
 
 		<h2>生成系</h2>
@@ -103,6 +109,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/20</p>
+			<p><AppLink app="convert-datetime">日時フォーマット変換</AppLink>&nbsp;公開</p>
 			<p>2025/03/10</p>
 			<p><AppLink app="viewer-binary">バイナリビューア</AppLink>&nbsp;公開</p>
 			<p>2025/03/05</p>

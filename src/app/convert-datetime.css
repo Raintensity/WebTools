@@ -1,0 +1,62 @@
+[data-scope="convert-datetime"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 10px;
+	}
+
+	h3 {
+		font-size: 18px;
+
+		span {
+			display: inline-block;
+			font-size: 12px;
+			font-weight: normal;
+			margin: 0 5px;
+			padding: 0 5px;
+			border-radius: .5em;
+			background-color: var(--color-theme);
+			color: var(--color-hl);
+		}
+	}
+
+	p:has(input) {
+		display: flex;
+	}
+
+	:where(input:not([type="button"]), select) {
+		padding: 8px 10px;
+	}
+
+	:where(input[type="text"], input[type="number"]) {
+		width: 100%;
+	}
+
+	div.flex-pc {
+		display: flex;
+		gap: 10px;
+
+		&>* {
+			flex: 1;
+		}
+
+		p>*+* {
+			margin-left: 10px;
+		}
+
+		@media screen and (max-width: 1000px) {
+			display: block;
+		}
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+
+	&>div>div>*~* {
+		margin-top: 5px;
+	}
+}

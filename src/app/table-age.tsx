@@ -2,7 +2,7 @@ import { PreactDOMAttributes } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
-import { zPad } from "lib/util";
+import { IMPERIAL_JP, zPad } from "lib/util";
 
 export const meta: AppModuleMeta = {
 	hasCSS: true,
@@ -92,15 +92,8 @@ const format = (date: Date) => {
 		+ zPad(date.getDate(), 2);
 };
 
-const IMPERIAL = [
-	{ name: "明治", begin: new Date(-3216790800000) },
-	{ name: "大正", begin: new Date(-1812186000000) },
-	{ name: "昭和", begin: new Date(-1357635600000) },
-	{ name: "平成", begin: new Date(600188400000) },
-	{ name: "令和", begin: new Date(1556636400000) }
-];
 const getJPYear = (date: Date) => {
-	const imperial = IMPERIAL.toReversed().find(a => a.begin < date);
+	const imperial = IMPERIAL_JP.toReversed().find(a => a.begin < date);
 	if (!imperial) {
 		return "";
 	}
