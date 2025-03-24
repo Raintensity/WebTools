@@ -1,0 +1,59 @@
+[data-scope="generate-calendar"] {
+	width: 100vw;
+	height: 100dvh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	&>div {
+		display: flex;
+		height: 30px;
+
+		input[type="month"] {
+			border: 0;
+			color: var(--color-hl);
+			font-size: 1.5em;
+			font-weight: bold;
+			background-color: inherit;
+		}
+
+		@media print {
+			input[type="button"]{
+				display: none;
+			}
+		}
+	}
+
+	&>table {
+		table-layout: fixed;
+		border-collapse: collapse;
+		flex: 1;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+		}
+
+		:where(td) {
+			position: relative;
+		}
+
+		.sat {
+			color: light-dark(#66f, #aaf);
+			background-color: color-mix(in srgb, var(--color-bg) 90%, currentcolor);
+		}
+
+		.sun {
+			color: light-dark(#f66, #faa);
+			background-color: color-mix(in srgb, var(--color-bg) 90%, currentcolor);
+		}
+
+		p.day {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			font-weight: bold;
+			width: 2em;
+			text-align: center;
+		}
+	}
+}

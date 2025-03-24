@@ -85,6 +85,8 @@ export class DateEx extends Date {
 		this.removeOffset();
 	}
 
+	static DAYS_JP = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
 	private static formatPriority = [
 		"hh", "h", "mm", "m", "ss", "s",
 		"dd", "d", "yyyy", "yy", "MM", "M"

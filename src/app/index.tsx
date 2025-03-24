@@ -45,6 +45,12 @@ export const App = () => (
 					<p>任意の文字でランダムな文字列を生成</p>
 				</AppLink>
 			</div>
+			<div>
+				<AppLink app="generate-calendar">
+					<h3>カレンダー生成</h3>
+					<p>指定年月のカレンダーを生成</p>
+				</AppLink>
+			</div>
 		</div>
 
 		<h2>ビューア</h2>
@@ -109,6 +115,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/03/25</p>
+			<p><AppLink app="generate-calendar">カレンダー生成</AppLink>&nbsp;公開</p>
 			<p>2025/03/20</p>
 			<p><AppLink app="convert-datetime">日時フォーマット変換</AppLink>&nbsp;公開</p>
 			<p>2025/03/10</p>
