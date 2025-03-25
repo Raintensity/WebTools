@@ -125,7 +125,7 @@ export class DateEx extends Date {
 	}
 }
 
-export const IMPERIAL_JP = [
+export const IMPERIAL_JP: { name: string, begin: Date }[] = [
 	{ name: "明治", begin: new Date(-3216790800000) },
 	{ name: "大正", begin: new Date(-1812186000000) },
 	{ name: "昭和", begin: new Date(-1357635600000) },

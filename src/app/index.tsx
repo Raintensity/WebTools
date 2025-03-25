@@ -66,6 +66,12 @@ export const App = () => (
 		<h2>早見表</h2>
 		<div class="grid">
 			<div>
+				<AppLink app="table-year">
+					<h3>年情報</h3>
+					<p>指定年の平日・休日日数や祝日の早見を生成</p>
+				</AppLink>
+			</div>
+			<div>
 				<AppLink app="table-age">
 					<h3>年齢早見表</h3>
 					<p>基準日から年齢の早見表を生成</p>
@@ -116,7 +122,7 @@ export const App = () => (
 		<h2>更新情報</h2>
 		<div class="grid-table">
 			<p>2025/03/25</p>
-			<p><AppLink app="generate-calendar">カレンダー生成</AppLink>&nbsp;公開</p>
+			<p><AppLink app="generate-calendar">カレンダー生成</AppLink>、<AppLink app="table-year">年情報</AppLink>&nbsp;公開</p>
 			<p>2025/03/20</p>
 			<p><AppLink app="convert-datetime">日時フォーマット変換</AppLink>&nbsp;公開</p>
 			<p>2025/03/10</p>

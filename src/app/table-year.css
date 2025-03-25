@@ -1,0 +1,75 @@
+[data-scope="table-year"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	input {
+		padding: 8px 10px;
+	}
+
+	.input-warn {
+		align-self: center;
+		font-weight: bold;
+		color: #f66;
+	}
+
+	div.flex-pc {
+		display: flex;
+		gap: 10px;
+
+		&>* {
+			flex: 1;
+
+			&>*+* {
+				margin-top: 5px;
+			}
+		}
+
+		@media screen and (max-width: 1000px) {
+			display: block;
+		}
+	}
+
+	dl {
+		dt {
+			font-weight: bold;
+			font-size: 90%;
+
+			&~dt {
+				margin-top: 5px;
+			}
+		}
+
+		dd {
+			background-color: color-mix(in srgb, var(--color-theme) 25%, var(--color-bg));
+			padding: 5px 10px;
+		}
+	}
+
+	table {
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 100%;
+
+		:where(th, td) {
+			border: 1px solid color-mix(in srgb, var(--color-bg) 50%, var(--color-fg));
+			padding: 3px 10px;
+
+			@media screen and (max-width: 1000px) {
+				font-size: 90%;
+			}
+		}
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	&>*~* {
+		margin-top: 5px;
+	}
+}
