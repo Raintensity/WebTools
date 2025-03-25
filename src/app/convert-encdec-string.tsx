@@ -129,7 +129,7 @@ const ENCODER: {
 		decode(data) {
 			return new TextDecoder().decode(Uint8Array.from(window.atob(data), c => {
 				const code = c.codePointAt(0);
-				if (code === undefined) throw new Error("Unknown error");
+				if (typeof code === "undefined") throw new Error("Unknown error");
 				return code;
 			}));
 		}

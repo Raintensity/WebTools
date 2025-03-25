@@ -19,7 +19,7 @@ const AppRouter = (props: AppRouterProps) => {
 	let appModule: AppModule | null | undefined = undefined;
 	let appStyle: string | null | undefined = undefined;
 	const Application = () => {
-		if (appModule === undefined) {
+		if (typeof appModule === "undefined") {
 			// throw import("../app/" + page + ".tsx")
 			// 	.then(e => appModule = e)
 			// 	.catch(_ => appModule = null);
@@ -40,7 +40,7 @@ const AppRouter = (props: AppRouterProps) => {
 
 		const App = appModule.App;
 		props.setMinimalHeader(appModule.meta?.minimalGlobalHeader ?? false);
-		if (appModule.meta?.hasCSS && appStyle === undefined) {
+		if (appModule.meta?.hasCSS && typeof appStyle === "undefined") {
 			throw fetch("../app/" + page + ".css")
 				.then(e => e.ok ? e.text() : Promise.reject())
 				.then(e => appStyle = e)

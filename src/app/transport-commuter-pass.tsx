@@ -54,7 +54,7 @@ interface ResultProps extends PreactDOMAttributes {
 	result: ResultStruct
 }
 const Result = (props: ResultProps) => {
-	if (props.result.error !== undefined) {
+	if (typeof props.result.error !== "undefined") {
 		return (<p><output>{props.result.error}</output></p>);
 	}
 	return (

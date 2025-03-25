@@ -68,7 +68,7 @@ const Row = (props: RowProps) => {
 		}
 
 		const char = e.ctrlKey ? "0x" + text.codePointAt(0)?.toString(16) : text;
-		if (char === undefined) {
+		if (typeof char === "undefined") {
 			return;
 		}
 		window.navigator.clipboard.writeText(char);
