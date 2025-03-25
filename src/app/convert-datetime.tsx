@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
-import { DateEx, IMPERIAL_JP } from "lib/util";
+import { DateEx } from "lib/util";
 
 export const meta: AppModuleMeta = {
 	hasCSS: true,
@@ -68,7 +68,7 @@ export const App = () => {
 		} else if (e.currentTarget.name === "jpien") {
 			if (val === "" || Number.isNaN(parseInt(jpyearRef.current.value))) return;
 			const jpyear = jpyearRef.current;
-			const era = IMPERIAL_JP.find(e => e.name === val);
+			const era = DateEx.IMPERIAL_JP.find(e => e.name === val);
 			if (!era) return;
 
 			setDatetime(clonedDateEx(d => {
@@ -77,7 +77,7 @@ export const App = () => {
 		} else if (e.currentTarget.name === "jpyear") {
 			if (jpienRef.current.value === "" || Number.isNaN(parseInt(val))) return;
 			const jpien = jpienRef.current.value;
-			const era = IMPERIAL_JP.find(e => e.name === jpien);
+			const era = DateEx.IMPERIAL_JP.find(e => e.name === jpien);
 			if (!era) return;
 
 			setDatetime(clonedDateEx(d => {
@@ -134,7 +134,7 @@ export const App = () => {
 	const iso = datetime.toISOString();
 	const date = datetime.formatWithOffset("yyyy-MM-dd");
 	const time = datetime.formatWithOffset("hh:mm");
-	const jpienObj = IMPERIAL_JP.toReversed().find(a => a.begin <= datetime);
+	const jpienObj = DateEx.IMPERIAL_JP.toReversed().find(a => a.begin <= datetime);
 	const jpien = jpienObj?.name ?? "";
 	const jpyear = jpienObj ?
 		datetime.getFullYear() - jpienObj.begin.getFullYear() + 1 : null;
@@ -192,7 +192,7 @@ export const App = () => {
 					<p>
 						<select name="jpien" onInput={onChange} ref={jpienRef}>
 							<option value=""></option>
-							{IMPERIAL_JP.map(e => (
+							{DateEx.IMPERIAL_JP.map(e => (
 								<option value={e.name} selected={e.name === jpien}>
 									{e.name}
 								</option>

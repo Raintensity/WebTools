@@ -86,6 +86,13 @@ export class DateEx extends Date {
 	}
 
 	static DAYS_JP = ["日", "月", "火", "水", "木", "金", "土"] as const;
+	static IMPERIAL_JP: { name: string, begin: Date }[] = [
+		{ name: "明治", begin: new Date(-3216790800000) },
+		{ name: "大正", begin: new Date(-1812186000000) },
+		{ name: "昭和", begin: new Date(-1357635600000) },
+		{ name: "平成", begin: new Date(600188400000) },
+		{ name: "令和", begin: new Date(1556636400000) }
+	] as const;
 
 	private static formatPriority = [
 		"hh", "h", "mm", "m", "ss", "s",
@@ -124,11 +131,3 @@ export class DateEx extends Date {
 		}, pattern);
 	}
 }
-
-export const IMPERIAL_JP: { name: string, begin: Date }[] = [
-	{ name: "明治", begin: new Date(-3216790800000) },
-	{ name: "大正", begin: new Date(-1812186000000) },
-	{ name: "昭和", begin: new Date(-1357635600000) },
-	{ name: "平成", begin: new Date(600188400000) },
-	{ name: "令和", begin: new Date(1556636400000) }
-] as const;

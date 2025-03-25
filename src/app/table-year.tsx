@@ -2,7 +2,7 @@ import { useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
 import { getJPHolidays } from "lib/holiday";
-import { DateEx, IMPERIAL_JP } from "lib/util";
+import { DateEx } from "lib/util";
 
 export const meta: AppModuleMeta = {
 	hasCSS: true,
@@ -131,7 +131,7 @@ const getJPImperials = (yNum: number) => {
 
 	const imperialArr: YEAR_JP[] = [];
 	let flg = false;
-	for (const item of IMPERIAL_JP.toReversed()) {
+	for (const item of DateEx.IMPERIAL_JP.toReversed()) {
 		const bTime = item.begin.getTime();
 		const lastData = imperialArr[imperialArr.length - 1];
 		const data: YEAR_JP = {

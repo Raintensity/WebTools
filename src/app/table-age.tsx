@@ -2,7 +2,7 @@ import { PreactDOMAttributes } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppModuleMeta } from "lib/const";
-import { IMPERIAL_JP, zPad } from "lib/util";
+import { DateEx, zPad } from "lib/util";
 
 export const meta: AppModuleMeta = {
 	hasCSS: true,
@@ -37,7 +37,7 @@ export const App = () => {
 			</div>
 			<table>
 				<colgroup>
-					<col style={{width: "55px"}}/>
+					<col style={{ width: "55px" }} />
 				</colgroup>
 				<thead>
 					<tr><th>年齢</th><th colspan={3}>生年月日</th></tr>
@@ -93,7 +93,7 @@ const format = (date: Date) => {
 };
 
 const getJPYear = (date: Date) => {
-	const imperial = IMPERIAL_JP.toReversed().find(a => a.begin < date);
+	const imperial = DateEx.IMPERIAL_JP.toReversed().find(a => a.begin < date);
 	if (!imperial) {
 		return "";
 	}
