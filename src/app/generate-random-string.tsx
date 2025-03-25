@@ -1,12 +1,10 @@
 import { PreactDOMAttributes } from "preact";
 import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "ランダム文字列生成",
-	description: "任意の文字でランダムな文字列を生成"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => {

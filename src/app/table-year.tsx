@@ -1,13 +1,11 @@
 import { useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { getJPHolidays } from "lib/holiday";
 import { DateEx } from "lib/util";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "年情報",
-	description: "指定年の平日・休日日数や祝日の早見を生成"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 type Month = { m: number, d: number, wd: number, hd: number };

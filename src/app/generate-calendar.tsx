@@ -1,12 +1,10 @@
 import { useCallback, useState } from "preact/hooks";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { DateEx } from "lib/util";
 import { isJPHoliday } from "lib/holiday";
 
-export const meta: AppModuleMeta = {
+export const meta: AppMeta = {
 	minimalGlobalHeader: true,
-	title: "カレンダー生成",
-	description: "指定年月のカレンダーを生成",
 	hasCSS: true
 };
 

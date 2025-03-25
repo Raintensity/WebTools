@@ -1,12 +1,10 @@
 import { MouseEventHandler } from "preact/compat";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "山手線内運賃表(2026春～)",
-	description: "東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成 ※2026春以降の運賃"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => (

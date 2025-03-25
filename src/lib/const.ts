@@ -2,12 +2,10 @@ import { AnyComponent } from "preact";
 
 export interface AppModule {
 	App: AnyComponent
-	meta?: AppModuleMeta
+	meta?: AppMeta
 }
 
-export interface AppModuleMeta {
+export interface AppMeta {
 	hasCSS?: boolean
 	minimalGlobalHeader?: boolean
-	title?: string
-	description?: string
 }

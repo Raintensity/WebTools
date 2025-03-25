@@ -1,12 +1,10 @@
 import { PreactDOMAttributes } from "preact";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "バイナリビューア",
-	description: "バイナリファイルの内容を表示"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 const rowHeight = 25;

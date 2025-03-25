@@ -1,12 +1,10 @@
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { PreactDOMAttributes } from "preact";
 import { useState } from "preact/hooks";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "普通乗車券と定期券の比較計算",
-	description: "何回以上の利用で定期券の方がお得になるのかを計算"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => (

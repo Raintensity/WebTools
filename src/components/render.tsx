@@ -51,7 +51,7 @@ const AppRouter = (props: AppRouterProps) => {
 		const title = appInfo?.name ?? "Web道具箱";
 		const description = appInfo?.description ?? (page === "index" ? INDEX_INFO.description : "");
 
-		document.title = (appModule.meta?.title ? appModule.meta?.title + " - " : "") + "Web道具箱";
+		document.title = (appInfo?.name ? appInfo?.name + " - " : "") + "Web道具箱";
 		(document.querySelector("meta[name='description']") as HTMLMetaElement).content = description;
 		(document.querySelector("meta[property='og:title']") as HTMLMetaElement).content = title;
 		(document.querySelector("meta[property='og:url']") as HTMLMetaElement).content = window.location.href;

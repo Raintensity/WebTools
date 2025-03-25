@@ -1,12 +1,10 @@
 import { PreactDOMAttributes } from "preact";
 import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "Unicode文字早見表",
-	description: "Unicode文字の早見表を生成"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 // スマホ向け対応

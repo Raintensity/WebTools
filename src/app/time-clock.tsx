@@ -1,11 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { zPad } from "lib/util";
 
-export const meta: AppModuleMeta = {
-	minimalGlobalHeader: true,
-	title: "時計",
-	description: "ウィンドウに合わせたフォントサイズの時計"
+export const meta: AppMeta = {
+	minimalGlobalHeader: true
 };
 
 export const App = () => {

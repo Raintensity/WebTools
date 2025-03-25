@@ -1,11 +1,10 @@
 import { BaseLayout } from "components/layout";
 import { AppLink } from "components/tags/applink";
 import { CATEGORY_LIST } from "lib/appinfo";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	description: "様々な計算ができるツール置き場"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => (

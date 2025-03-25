@@ -1,12 +1,10 @@
 import { PreactDOMAttributes } from "preact";
 import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "JR東日本 新幹線運賃比較表",
-	description: "JR東日本の新幹線の任意の駅を起点とした乗車券・特急券・JREポイント利用の比較計算"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => (

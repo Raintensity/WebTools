@@ -1,12 +1,10 @@
 import { PreactDOMAttributes, RefObject } from "preact";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "文字列エンコーダ・デコーダ",
-	description: "Base64やURL等の形式にエンコード・デコード"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => {

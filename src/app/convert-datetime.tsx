@@ -1,12 +1,10 @@
 import { useCallback, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { DateEx } from "lib/util";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "日時フォーマット変換",
-	description: "日時を各種フォーマットに変換"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 const TIMEZONE_LIST = [

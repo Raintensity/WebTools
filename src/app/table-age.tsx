@@ -1,13 +1,11 @@
 import { PreactDOMAttributes } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
-import { AppModuleMeta } from "lib/const";
+import { AppMeta } from "lib/const";
 import { DateEx, zPad } from "lib/util";
 
-export const meta: AppModuleMeta = {
-	hasCSS: true,
-	title: "年齢早見表",
-	description: "基準日から年齢の早見表を生成"
+export const meta: AppMeta = {
+	hasCSS: true
 };
 
 export const App = () => {
