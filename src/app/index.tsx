@@ -1,5 +1,6 @@
 import { BaseLayout } from "components/layout";
 import { AppLink } from "components/tags/applink";
+import { CATEGORY_LIST } from "lib/appinfo";
 import { AppModuleMeta } from "lib/const";
 
 export const meta: AppModuleMeta = {
@@ -11,107 +12,22 @@ export const App = () => (
 	<BaseLayout scope="index" isCentering={true}>
 		<h1>Web道具箱</h1>
 
-		<h2>時間系</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="time-clock">
-					<h3>時計</h3>
-					<p>ウィンドウに合わせたフォントサイズの時計</p>
-				</AppLink>
-			</div>
-		</div>
+		{CATEGORY_LIST.map(category => (
+			<>
+				<h2>{category.name}</h2>
+				<div class="grid">
+					{category.apps.map(app => (
+						<div>
+							<AppLink app={app.slug}>
+								<h3>{app.name}</h3>
+								<p>{app.description}</p>
+							</AppLink>
+						</div>
+					))}
+				</div>
+			</>
+		))}
 
-		<h2>変換系</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="convert-encdec-string">
-					<h3>文字列エンコーダ・デコーダ</h3>
-					<p>Base64やURL形式等にエンコード・デコード</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="convert-datetime">
-					<h3>日時フォーマット変換</h3>
-					<p>日時をYMD形式やUNIX時間など、各種フォーマットに相互変換</p>
-				</AppLink>
-			</div>
-		</div>
-
-		<h2>生成系</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="generate-random-string">
-					<h3>ランダム文字列生成</h3>
-					<p>任意の文字でランダムな文字列を生成</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="generate-calendar">
-					<h3>カレンダー生成</h3>
-					<p>指定年月のカレンダーを生成</p>
-				</AppLink>
-			</div>
-		</div>
-
-		<h2>ビューア</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="viewer-binary">
-					<h3>バイナリビューア</h3>
-					<p>バイナリファイルの内容を表示</p>
-				</AppLink>
-			</div>
-		</div>
-
-		<h2>早見表</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="table-year">
-					<h3>年情報</h3>
-					<p>指定年の平日・休日日数や祝日の早見を生成</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="table-age">
-					<h3>年齢早見表</h3>
-					<p>基準日から年齢の早見表を生成</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="table-unicode">
-					<h3>Unicode文字早見表</h3>
-					<p>Unicode文字の早見表を生成</p>
-				</AppLink>
-			</div>
-		</div>
-
-		<h2>交通系</h2>
-		<div class="grid">
-			<div>
-				<AppLink app="transport-commuter-pass">
-					<h3>普通乗車券と定期券の比較計算</h3>
-					<p>何回以上の利用で定期券の方がお得になるのかを計算</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="transport-inner-yamanote">
-					<h3>山手線内運賃表</h3>
-					<p>東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="transport-inner-yamanote-2026">
-					<h3>山手線内運賃表(2026春～)</h3>
-					<p>東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成 ※2026春以降の運賃</p>
-				</AppLink>
-			</div>
-			<div>
-				<AppLink app="transport-jreast-shinkansen">
-					<h3>JR東日本 新幹線運賃比較表</h3>
-					<p>JR東日本の新幹線の任意の駅を起点とした乗車券・特急券・JREポイント利用の比較計算</p>
-				</AppLink>
-			</div>
-		</div>
 
 		<h2>当サイトについて</h2>
 		<p>ジャンルを問わず、様々な計算ができるツール置き場です。すべてWebブラウザで動作し、入力内容はサーバへ送信されません。</p>

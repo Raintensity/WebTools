@@ -1,6 +1,7 @@
 import { PreactDOMAttributes, render as preactRender } from "preact";
 import { Dispatch, Suspense, useState } from "preact/compat";
 import { StateUpdater } from "preact/hooks";
+import { getAppInfo, INDEX_INFO } from "lib/appinfo";
 import { AppModule } from "lib/const";
 import { ErrorPage } from "./parts/error";
 import { GlobalHeader } from "./parts/header";
@@ -46,13 +47,17 @@ const AppRouter = (props: AppRouterProps) => {
 				.catch(() => appStyle = null);
 		}
 
+		const appInfo = getAppInfo(page);
+		const title = appInfo?.name ?? "Web道具箱";
+		const description = appInfo?.description ?? (page === "index" ? INDEX_INFO.description : "");
+
 		document.title = (appModule.meta?.title ? appModule.meta?.title + " - " : "") + "Web道具箱";
-		(document.querySelector("meta[name='description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
-		(document.querySelector("meta[property='og:title']") as HTMLMetaElement).content = appModule.meta?.title ?? "Web道具箱";
+		(document.querySelector("meta[name='description']") as HTMLMetaElement).content = description;
+		(document.querySelector("meta[property='og:title']") as HTMLMetaElement).content = title;
 		(document.querySelector("meta[property='og:url']") as HTMLMetaElement).content = window.location.href;
-		(document.querySelector("meta[property='og:description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
-		(document.querySelector("meta[name='twitter:title']") as HTMLMetaElement).content = appModule.meta?.title ?? "Web道具箱";
-		(document.querySelector("meta[name='twitter:description']") as HTMLMetaElement).content = appModule.meta?.description ?? "";
+		(document.querySelector("meta[property='og:description']") as HTMLMetaElement).content = description;
+		(document.querySelector("meta[name='twitter:title']") as HTMLMetaElement).content = title;
+		(document.querySelector("meta[name='twitter:description']") as HTMLMetaElement).content = description;
 
 		return (
 			<>

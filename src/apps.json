@@ -1,0 +1,108 @@
+{
+	"index": {
+		"description": "様々な計算ができるツール置き場"
+	},
+	"tools": [
+		{
+			"category": "time",
+			"name": "時間系",
+			"apps": [
+				{
+					"name": "時計",
+					"slug": "time-clock",
+					"description": "ウィンドウに合わせたフォントサイズの時計"
+				}
+			]
+		},
+		{
+			"category": "convert",
+			"name": "変換系",
+			"apps": [
+				{
+					"name": "文字列エンコーダ・デコーダ",
+					"slug": "convert-encdec-string",
+					"description": "Base64やURL形式等にエンコード・デコード"
+				},
+				{
+					"name": "日時フォーマット変換",
+					"slug": "convert-datetime",
+					"description": "日時をYMD形式やUNIX時間など、各種フォーマットに相互変換"
+				}
+			]
+		},
+		{
+			"category": "generate",
+			"name": "生成系",
+			"apps": [
+				{
+					"name": "ランダム文字列生成",
+					"slug": "generate-random-string",
+					"description": "任意の文字でランダムな文字列を生成"
+				},
+				{
+					"name": "カレンダー生成",
+					"slug": "generate-calendar",
+					"description": "指定年月のカレンダーを生成"
+				}
+			]
+		},
+		{
+			"category": "viewer",
+			"name": "ビューア",
+			"apps": [
+				{
+					"name": "バイナリビューア",
+					"slug": "viewer-binary",
+					"description": "バイナリファイルの内容を表示"
+				}
+			]
+		},
+		{
+			"category": "table",
+			"name": "早見表",
+			"apps": [
+				{
+					"name": "年情報",
+					"slug": "table-year",
+					"description": "指定年の平日・休日日数や祝日の早見を生成"
+				},
+				{
+					"name": "年齢早見表",
+					"slug": "table-age",
+					"description": "基準日から年齢の早見表を生成"
+				},
+				{
+					"name": "Unicode文字早見表",
+					"slug": "table-unicode",
+					"description": "Unicode文字の早見表を生成"
+				}
+			]
+		},
+		{
+			"category": "transport",
+			"name": "交通系",
+			"apps": [
+				{
+					"name": "普通乗車券と定期券の比較計算",
+					"slug": "transport-commuter-pass",
+					"description": "何回以上の利用で定期券の方がお得になるのかを計算"
+				},
+				{
+					"name": "山手線内運賃表",
+					"slug": "transport-inner-yamanote",
+					"description": "東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成"
+				},
+				{
+					"name": "山手線内運賃表(2026春～)",
+					"slug": "transport-inner-yamanote-2026",
+					"description": "東京山手線内相互の運賃表(券売機の上に掲示されているやつ)を自動生成 ※2026春以降の運賃"
+				},
+				{
+					"name": "JR東日本 新幹線運賃比較表",
+					"slug": "transport-jreast-shinkansen",
+					"description": "JR東日本の新幹線の任意の駅を起点とした乗車券・特急券・JREポイント利用の比較計算"
+				}
+			]
+		}
+	]
+}
