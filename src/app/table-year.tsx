@@ -18,7 +18,8 @@ export const App = () => {
 		if (!(e.currentTarget instanceof HTMLInputElement)) {
 			return;
 		}
-		if (!Number.isNaN(parseInt(e.currentTarget.value))) {
+		const val = parseInt(e.currentTarget.value);
+		if (!Number.isNaN(val) && val >= 1000 && val <= 9999) {
 			setYear(parseInt(e.currentTarget.value));
 		}
 	}, []);
@@ -50,7 +51,7 @@ export const App = () => {
 				<p style={{ flex: "none" }}>
 					<label>年:
 						<input type="number" inputmode="numeric"
-							value={year} onInput={onInput} />
+							min="1000" max="9999" value={year} onInput={onInput} />
 					</label>
 				</p>
 				{year < 1873 && <p class="input-warn">グレゴリオ暦導入前</p>}
