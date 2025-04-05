@@ -36,6 +36,8 @@ export const App = () => (
 
 		<h2>更新情報</h2>
 		<div class="grid-table">
+			<p>2025/04/06</p>
+			<p><AppLink app="convert-unit">単位変換</AppLink>&nbsp;公開</p>
 			<p>2025/03/25</p>
 			<p><AppLink app="generate-calendar">カレンダー生成</AppLink>、<AppLink app="table-year">年情報</AppLink>&nbsp;公開</p>
 			<p>2025/03/20</p>

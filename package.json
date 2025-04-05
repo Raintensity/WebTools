@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@minify-html/node": "^0.15.0",
+    "big.js": "^6.2.2",
     "esbuild": "^0.24.2",
     "preact": "^10.25.4"
   },
   "devDependencies": {
+    "@types/big.js": "^6.2.2",
     "chokidar": "^4.0.3"
   }
 }

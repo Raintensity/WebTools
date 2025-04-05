@@ -1,0 +1,77 @@
+[data-scope="convert-unit"] {
+	h1 {
+		color: var(--color-hl);
+	}
+
+	h2 {
+		font-size: 22px;
+		margin-top: 10px;
+
+		&~h2 {
+			margin-top: 15px;
+		}
+	}
+
+	h3 {
+		font-size: 18px;
+		margin-top: 10px;
+
+		button {
+			display: inline-block;
+			font-size: 75%;
+			font-weight: normal;
+			padding: 0 5px;
+			margin: 0 5px;
+			border: 1px outset var(--color-fg);
+			border-radius: .5em;
+			color: #fff;
+			background-color: var(--color-theme);
+			cursor: pointer;
+			user-select: none;
+
+			&:disabled {
+				background-color: color-mix(in srgb, var(--color-theme) 50%, #f00);
+				border: 1px solid color-mix(in srgb, var(--color-theme) 50%, #f00);
+				pointer-events: none;
+			}
+
+			&:active {
+				border: 1px inset var(--color-fg);
+			}
+		}
+	}
+
+	div.flex-pc {
+		display: flex;
+		gap: 10px;
+
+		&>* {
+			flex: 1;
+		}
+
+		p>*+* {
+			margin-left: 10px;
+		}
+
+		@media screen and (max-width: 1000px) {
+			display: block;
+		}
+	}
+
+	p:has(input) {
+		display: flex;
+	}
+
+	:where(input:not([type="button"]), select) {
+		padding: 8px 10px;
+	}
+
+	:where(input[type="number"]) {
+		width: 100%;
+		text-align: right;
+	}
+
+	&>div>div>*~* {
+		margin-top: 5px;
+	}
+}

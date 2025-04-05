@@ -27,6 +27,11 @@
 					"name": "日時フォーマット変換",
 					"slug": "convert-datetime",
 					"description": "日時をYMD形式やUNIX時間など、各種フォーマットに相互変換"
+				},
+				{
+					"name": "単位変換",
+					"slug": "convert-unit",
+					"description": "情報系単位(ビット・バイト・ビットレート等)を中心に相互変換・計算"
 				}
 			]
 		},
