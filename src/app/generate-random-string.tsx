@@ -1,5 +1,5 @@
 import { PreactDOMAttributes } from "preact";
-import { Dispatch, StateUpdater, useCallback, useState } from "preact/hooks";
+import { Dispatch, StateUpdater, useCallback, useRef, useState } from "preact/hooks";
 import { BaseLayout } from "components/layout";
 import { AppMeta } from "lib/const";
 
@@ -78,9 +78,10 @@ interface CharsFormProps extends PreactDOMAttributes {
 	setChars: Dispatch<StateUpdater<string>>
 }
 const CharsForm = (props: CharsFormProps) => {
-	const [type, setType] = useState(DEFAULT.input.type);
-	const [check, setCheck] = useState(DEFAULT.input.check as string[]);
-	const [input, setInput] = useState(DEFAULT.input.input);
+	const [symbol, setSymbol] = useState("");
+	const typeRef = useRef("check");
+	const checkRef = useRef(["number", "lower", "upper"] as DefinedChars[]);
+	const inputRef = useRef("");
 
 	const onInput = useCallback((e: Event) => {
 		if (!(e.currentTarget instanceof HTMLInputElement)) {
@@ -89,37 +90,28 @@ const CharsForm = (props: CharsFormProps) => {
 		const name = e.currentTarget.name;
 		const value = e.currentTarget.value;
 		if (name === "input_type") {
-			setType(value);
+			typeRef.current = value;
 			if (value === "check") {
-				let arr: string[] = [];
-				setCheck(c => { arr = c; return c });
-				props.setChars(arr.reduce((a, c) => a + CHARS[(c as DefinedChars)], ""));
+				props.setChars(checkRef.current.reduce((a, c) => a + CHARS[c], ""));
 			} else if (value === "input") {
-				let str: string = "";
-				setInput(c => { str = c; return c });
-				props.setChars(str);
+				props.setChars(inputRef.current);
 			} else {
 				props.setChars(CHARS[(value as DefinedChars)]);
 			}
 		} else if (name === "check") {
-			let arr: string[] = [];
-			if (e.currentTarget.checked) {
-				setCheck(c => {
-					if (value === "symbol_min") {
-						arr = [...c, value].filter(a => a !== "symbol");
-					} else if (value === "symbol") {
-						arr = [...c, value].filter(a => a !== "symbol_min");
-					} else {
-						arr = [...c, value];
-					}
-					return arr;
-				});
-			} else {
-				setCheck(c => { arr = c.filter(i => i !== value); return arr });
+			if (value.startsWith("symbol")) {
+				checkRef.current = checkRef.current.filter(i => !i.startsWith("symbol"));
 			}
-			props.setChars(arr.reduce((a, c) => a + CHARS[(c as DefinedChars)], ""));
+			if (e.currentTarget.checked) {
+				if (value.startsWith("symbol")) setSymbol(value);
+				checkRef.current.push(value as DefinedChars);
+			} else {
+				if (value.startsWith("symbol")) setSymbol("");
+				checkRef.current = checkRef.current.filter(i => i !== value);
+			}
+			props.setChars(checkRef.current.reduce((a, c) => a + CHARS[c], ""));
 		} else if (name === "input_input") {
-			setInput(value);
+			inputRef.current = value;
 			props.setChars(value);
 		}
 	}, []);
@@ -129,53 +121,55 @@ const CharsForm = (props: CharsFormProps) => {
 			<dt>
 				<label>
 					<input type="radio" name="input_type" value="check"
-						checked={type === "check"} onInput={onInput} />
+						checked={typeRef.current === "check"} onInput={onInput} />
 					チェックボックスから選択
 				</label>
 			</dt>
 			<dd>
-				{
-					Object.keys(CHAR_SELECTOR).map(e => (
+				{Object.keys(CHAR_SELECTOR).map(e => {
+					const checked = e.startsWith("symbol") ?
+						e === symbol : checkRef.current.includes(e as DefinedChars);
+					return (
 						<label>
 							<input type="checkbox" name="check" value={e}
-								checked={check.includes(e)} onInput={onInput}
-								disabled={type !== "check"} />
+								checked={checked} onInput={onInput}
+								disabled={typeRef.current !== "check"} />
 							{CHAR_SELECTOR[e]}
 						</label>
-					))
-				}
+					)
+				})}
 			</dd>
 			<dt>
 				<label>
 					<input type="radio" name="input_type" value="hex"
-						checked={type === "hex"} onInput={onInput} />
+						checked={typeRef.current === "hex"} onInput={onInput} />
 					16進数
 				</label>
 			</dt>
 			<dt>
 				<label>
 					<input type="radio" name="input_type" value="base32"
-						checked={type === "base32"} onInput={onInput} />
+						checked={typeRef.current === "base32"} onInput={onInput} />
 					Base32
 				</label>
 			</dt>
 			<dt>
 				<label>
 					<input type="radio" name="input_type" value="base64"
-						checked={type === "base64"} onInput={onInput} />
+						checked={typeRef.current === "base64"} onInput={onInput} />
 					Base64
 				</label>
 			</dt>
 			<dt>
 				<label>
 					<input type="radio" name="input_type" value="input"
-						checked={type === "input"} onInput={onInput} />
+						checked={typeRef.current === "input"} onInput={onInput} />
 					文字を直接指定
 				</label>
 			</dt>
 			<dd>
-				<input type="text" name="input_input" value={input} onInput={onInput}
-					disabled={type !== "input"} />
+				<input type="text" name="input_input" value={inputRef.current}
+					onInput={onInput} disabled={typeRef.current !== "input"} />
 			</dd>
 		</dl>
 	);
