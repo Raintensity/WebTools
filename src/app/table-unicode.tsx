@@ -7,8 +7,6 @@ export const meta: AppMeta = {
 	hasCSS: true
 };
 
-// スマホ向け対応
-
 const MAX_CODE = 0x10ffff;
 
 export const App = () => {

@@ -1,7 +1,6 @@
 import { copyFile, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
-import { parse, relative } from "node:path";
+import { parse } from "node:path";
 import minify from "@minify-html/node";
-import { watch } from "chokidar";
 import { build } from "esbuild";
 
 const srcDir = "/src";
