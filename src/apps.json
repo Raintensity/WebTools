@@ -32,6 +32,11 @@
 					"name": "単位変換",
 					"slug": "convert-unit",
 					"description": "情報系単位(ビット・バイト・ビットレート等)を中心に相互変換・計算"
+				},
+				{
+					"name": "ハッシュ計算",
+					"slug": "convert-hash",
+					"description": "ファイルやテキストの各種ハッシュ値(SHA1/256/384/512)を計算"
 				}
 			]
 		},
