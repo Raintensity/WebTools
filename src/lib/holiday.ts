@@ -32,7 +32,7 @@ const HOLIDAY_JP: HolidayJP[] = [
 	{ name: "こどもの日", type: "date", begin: new Date("1948-07-20"), month: 5, date: 5 },
 	{ name: "文化の日", type: "date", begin: new Date("1948-07-20"), month: 11, date: 3 },
 	{ name: "勤労感謝の日", type: "date", begin: new Date("1948-07-20"), month: 11, date: 23 },
-	{ name: "建国記念の日", type: "date", begin: new Date("1967-06-25"), month: 2, date: 12 },
+	{ name: "建国記念の日", type: "date", begin: new Date("1967-06-25"), month: 2, date: 11 },
 	{ name: "敬老の日", type: "date", begin: new Date("1967-06-25"), until: new Date("2002-12-31"), month: 9, date: 15 },
 	{ name: "体育の日", type: "date", begin: new Date("1967-06-25"), until: new Date("1999-12-31"), month: 10, date: 10 },
 	{ name: "天皇誕生日", type: "date", begin: new Date("1989-02-17"), until: new Date("2019-04-30"), month: 12, date: 23 },
