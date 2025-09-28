@@ -51,6 +51,13 @@ const Canvas = () => {
 	useEffect(() => {
 		if (!canvasRef.current) return;
 		window.matchMedia(colorThemeMediaQuery).addEventListener("change", themeChangeEvent);
+		const ratio = window.devicePixelRatio;
+		const width = canvasRef.current.width;
+		const height = canvasRef.current.height;
+		canvasRef.current.width = width * ratio;
+		canvasRef.current.height = height * ratio;
+		canvasRef.current.style.width = width + "px";
+		canvasRef.current.style.height = height + "px";
 		render(canvasRef.current, station);
 		return () => window.matchMedia(colorThemeMediaQuery).removeEventListener("change", themeChangeEvent);
 	}, [canvasRef]);
@@ -201,6 +208,7 @@ const fareByKm = [
 
 interface RenderInfo {
 	size: number
+	ratio: number
 	padding: number
 	fontSize: number
 	textColor: string
@@ -220,12 +228,14 @@ const renderMap = (canvas: HTMLCanvasElement, info: RenderInfo) => {
 	for (const line of lines) {
 		ctx.beginPath();
 		ctx.strokeStyle = info.lineColor;
-		ctx.lineWidth = 2;
+		ctx.lineWidth = 2 * info.ratio;
 		ctx.lineCap = "round";
 		let moved = false;
 		for (const geo of line.geo) {
 			const [x, y] = [geo[0] - info.offset.x, -geo[1] + info.offset.y].map(e => e * info.size);
-			moved ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+			moved
+				? ctx.lineTo(x * info.ratio, y * info.ratio)
+				: ctx.moveTo(x * info.ratio, y * info.ratio);
 			moved = true;
 		}
 		ctx.stroke();
@@ -239,10 +249,14 @@ const renderStationsMap = (canvas: HTMLCanvasElement, info: RenderInfo) => {
 	for (const s of stations) {
 		let [x, y] = [s.geo[0] - info.offset.x, -s.geo[1] + info.offset.y].map(e => e * info.size);
 		ctx.fillStyle = info.textColor;
-		ctx.font = info.fontSize + "px 'Hiragino Sans',sans-serif";
+		ctx.font = (info.fontSize * info.ratio) + "px 'Hiragino Sans',sans-serif";
 		ctx.textBaseline = s.pos.v;
 		ctx.textAlign = s.pos.h;
-		ctx.fillText(s.name, x + info.padding * (s.pos.h === "left" ? 2.5 : s.pos.h === "right" ? -2.5 : 0), y + info.padding * (s.pos.v === "top" ? 1 : s.pos.v === "bottom" ? -1 : 0));
+		ctx.fillText(
+			s.name,
+			(x + info.padding * (s.pos.h === "left" ? 2.5 : s.pos.h === "right" ? -2.5 : 0)) * info.ratio,
+			(y + info.padding * (s.pos.v === "top" ? 1 : s.pos.v === "bottom" ? -1 : 0)) * info.ratio
+		);
 	}
 };
 
@@ -258,7 +272,7 @@ const renderFareMap = (canvas: HTMLCanvasElement, info: RenderInfo, data: { code
 		if (!fares || !fares.fareIC) {
 			ctx.beginPath();
 			ctx.fillStyle = "red";
-			ctx.arc(x, y, 5, 0, Math.PI * 2);
+			ctx.arc(x * info.ratio, y * info.ratio, 5 * info.ratio, 0, Math.PI * 2);
 			ctx.fill();
 			continue;
 		}
@@ -268,11 +282,23 @@ const renderFareMap = (canvas: HTMLCanvasElement, info: RenderInfo, data: { code
 		ctx.textAlign = "center";
 		const preRender = ctx.measureText(fares.fareIC.toString());
 		const preRenderHeight = preRender.actualBoundingBoxAscent + preRender.actualBoundingBoxDescent;
+		ctx.font = (info.fontSize * info.ratio) + "px 'Verdana'";
 		ctx.fillStyle = "#008803";
-		ctx.fillRect(x - preRender.width / 2, y - preRenderHeight / 2 - 2.5, preRender.width, preRenderHeight + 2);
+		ctx.fillRect(
+			(x - preRender.width / 2) * info.ratio,
+			(y - preRenderHeight / 2 - 2.5) * info.ratio,
+			(preRender.width) * info.ratio,
+			(preRenderHeight + 2) * info.ratio
+		);
 		ctx.fillStyle = "#fff";
-		ctx.fillText(fares.fareIC.toString(), x, y);
-		eventList.push({ code: s.code, x: x - preRender.width / 2, y: y - preRenderHeight / 2 - 2.5, w: preRender.width, h: preRenderHeight + 2 });
+		ctx.fillText(fares.fareIC.toString(), x * info.ratio, y * info.ratio);
+		eventList.push({
+			code: s.code,
+			x: x - preRender.width / 2,
+			y: y - preRenderHeight / 2 - 2.5,
+			w: preRender.width,
+			h: preRenderHeight + 2
+		});
 	}
 };
 
@@ -303,7 +329,8 @@ const calcFare = (code: number) => {
 const render = (canvas: HTMLCanvasElement, code: number) => {
 	canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
 
-	const width = canvas.width - 0;
+	const ratio = window.devicePixelRatio;
+	const width = canvas.width / ratio - 0;
 	const padding = 10;
 	const fontSize = width / 35;
 
@@ -318,7 +345,7 @@ const render = (canvas: HTMLCanvasElement, code: number) => {
 	const textColor = isDarkMode ? "#ccc" : "#333";
 	const lineColor = isDarkMode ? "#fff" : "#000";
 
-	const renderInfo: RenderInfo = { size, padding, fontSize, textColor, lineColor, offset: { x: offsetX, y: offsetY } };
+	const renderInfo: RenderInfo = { size, ratio, padding, fontSize, textColor, lineColor, offset: { x: offsetX, y: offsetY } };
 
 	renderMap(canvas, renderInfo);
 	renderStationsMap(canvas, renderInfo);

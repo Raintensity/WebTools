@@ -32,9 +32,13 @@ export const App = () => {
 };
 
 const render = (canvas: HTMLCanvasElement, timeStr: string) => {
-	if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+	const ratio = window.devicePixelRatio;
+	if (canvas.width / ratio !== window.innerWidth
+		|| canvas.height / ratio !== window.innerHeight) {
+		canvas.width = window.innerWidth * ratio;
+		canvas.height = window.innerHeight * ratio;
+		canvas.style.width = window.innerWidth + "px";
+		canvas.style.height = window.innerHeight + "px";
 		canvas.dataset.fontSize = calcFontSize("'Hiragino Sans',sans-serif", canvas.width, canvas.height).toString();
 	}
 	const ctx = canvas.getContext("2d");
