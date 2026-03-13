@@ -10,7 +10,7 @@ export const meta: AppMeta = {
 export const App = () => (
 	<BaseLayout scope="transport-inner-yamanote" isCentering={true}>
 		<h1>山手線内運賃表</h1>
-		<p>2023/03/18 改定 IC運賃</p>
+		<p>2026/03/14改定 IC運賃</p>
 		<div><Canvas /></div>
 
 		<h2>ご注意</h2>
@@ -22,7 +22,7 @@ export const App = () => (
 		<ul>
 			<li>運賃データ</li>
 			<ul>
-				<li><a href="https://www.jreast.co.jp/unchin-kaitei/pdf/yamate_normal.pdf" target="_blank" rel="noopener noreferrer">山手線内の普通運賃表</a></li>
+				<li><a href="https://www.jreast.co.jp/press/2024/20241206_ho02.pdf" target="_blank" rel="noopener noreferrer">運賃改定の申請について</a></li>
 			</ul>
 			<li>路線図データ</li>
 			<ul>
@@ -199,11 +199,11 @@ connectors.forEach(e => {
 });
 
 const fareByKm = [
-	{ d: 3, fareIC: 146 },
-	{ d: 6, fareIC: 167 },
-	{ d: 10, fareIC: 178 },
-	{ d: 15, fareIC: 208 },
-	{ d: 20, fareIC: 274 },
+	{ d: 3, fareIC: 155 },
+	{ d: 6, fareIC: 199 },
+	{ d: 10, fareIC: 209 },
+	{ d: 15, fareIC: 253 },
+	{ d: 20, fareIC: 341 },
 ];
 
 interface RenderInfo {

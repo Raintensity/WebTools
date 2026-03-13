@@ -10,14 +10,16 @@ export const meta: AppMeta = {
 export const App = () => (
 	<BaseLayout scope="transport-jreast-shinkansen" isCentering={true}>
 		<h1>JR東日本 新幹線運賃比較表</h1>
-		<p>2025/01/01 現在</p>
+		<p>2026/03/14 現在</p>
 		<div><Calculator /></div>
 
 		<h2>ご注意</h2>
 		<ul>
 			<li>営業キロベースで独自に計算しているため、<em><strong>内容の正確性については保証しません</strong></em>。実際のご利用の際には、必ず信憑性のあるデータを合わせてご確認ください。</li>
-			<li>乗車券料金について、東京-大宮間の東京山手線内・電車特定区間制度は適用していません。この区間のみの乗車券は表記よりも少し安くなります。</li>
-			<li>Altキー押下中は始点駅の選択が切り替わりません。</li>
+			<li>指定席特急券は通常期の価格です。繁忙期は+200円、最繁忙期は+400円、閑散期は-200円となります。</li>
+			<li>自由席特急券は定期列車で設定の無い区間も含みます(東北新幹線の盛岡以北、山形・秋田新幹線)。同区間内で完結する場合、特定特急券が同料金です。</li>
+			<li>JREポイントは普通車指定席の交換ポイント数です。乗車券・指定席特急券を含む企画乗車券です(はやぶさ加算料金は不要です)。</li>
+			<li>Altキー押下中は始点駅の選択が切り替わりません(コピーに便利です)。</li>
 		</ul>
 
 		<h2>データ出典</h2>
@@ -25,6 +27,7 @@ export const App = () => (
 			<li>運賃計算方法</li>
 			<ul>
 				<li><a href="https://www.jreast.co.jp/ryokaku/02_hen/03_syo/07_setsu/index.html" target="_blank" rel="noopener noreferrer">JR東日本：旅客営業規則＞第2編　旅客営業 -第3章　旅客運賃・料金 -第7節　急行料金</a></li>
+				<li><a href="https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/kansen.pdf" target="_blank" rel="noopener noreferrer">普通旅客運賃【幹線】</a></li>
 			</ul>
 			<li>運賃データ(在来線特急)</li>
 			<ul>
@@ -36,7 +39,7 @@ export const App = () => (
 			</ul>
 			<li>JREポイント交換表</li>
 			<ul>
-				<li><a href="https://www.eki-net.com/top/point/guide/tokuten_section.html" target="_blank" rel="noopener noreferrer">新幹線eチケット（JRE POINT特典）・在来線チケットレス特急券（JRE POINT特典）／新幹線eチケット（JRE POINTアップグレード）交換ポイント早見表｜JRE POINTサービス：えきねっと（JR東日本）</a></li>
+				<li><a href="https://www.eki-net.com/top/product/shinkansen/e-tokuten.html" target="_blank" rel="noopener noreferrer">新幹線eチケット（JRE POINT特典）のお申込み方法｜商品概要：えきねっと（JR東日本）</a></li>
 			</ul>
 			<li>営業キロデータ</li>
 			<ul>
@@ -285,57 +288,57 @@ const fareTable = [
 	{
 		code: 1, // 乗車券
 		list: [
-			{ d: 3, fare: 150 },
-			{ d: 6, fare: 190 },
-			{ d: 10, fare: 200 },
-			{ d: 15, fare: 240 },
-			{ d: 20, fare: 330 },
-			{ d: 25, fare: 420 },
-			{ d: 30, fare: 510 },
-			{ d: 35, fare: 590 },
-			{ d: 40, fare: 680 },
-			{ d: 45, fare: 770 },
-			{ d: 50, fare: 860 },
-			{ d: 60, fare: 990 },
-			{ d: 70, fare: 1170 },
-			{ d: 80, fare: 1340 },
-			{ d: 90, fare: 1520 },
-			{ d: 100, fare: 1690 },
-			{ d: 120, fare: 1980 },
-			{ d: 140, fare: 2310 },
-			{ d: 160, fare: 2640 },
-			{ d: 180, fare: 3080 },
-			{ d: 200, fare: 3410 },
-			{ d: 220, fare: 3740 },
-			{ d: 240, fare: 4070 },
-			{ d: 260, fare: 4510 },
-			{ d: 280, fare: 4840 },
-			{ d: 300, fare: 5170 },
-			{ d: 320, fare: 5500 },
-			{ d: 340, fare: 5720 },
-			{ d: 360, fare: 6050 },
-			{ d: 380, fare: 6380 },
-			{ d: 400, fare: 6600 },
-			{ d: 420, fare: 6930 },
-			{ d: 440, fare: 7150 },
-			{ d: 460, fare: 7480 },
-			{ d: 480, fare: 7700 },
-			{ d: 500, fare: 8030 },
-			{ d: 520, fare: 8360 },
-			{ d: 540, fare: 8580 },
-			{ d: 560, fare: 8910 },
-			{ d: 580, fare: 9130 },
-			{ d: 600, fare: 9460 },
-			{ d: 640, fare: 9790 },
-			{ d: 680, fare: 10010 },
-			{ d: 720, fare: 10340 },
-			{ d: 760, fare: 10670 },
-			{ d: 800, fare: 11000 },
-			{ d: 840, fare: 11330 },
-			{ d: 880, fare: 11550 },
-			{ d: 920, fare: 11880 },
-			{ d: 960, fare: 12210 },
-			{ d: 1000, fare: 12540 }
+			{ d: 3, fare: 160 },
+			{ d: 6, fare: 200 },
+			{ d: 10, fare: 210 },
+			{ d: 15, fare: 260 },
+			{ d: 20, fare: 350 },
+			{ d: 25, fare: 440 },
+			{ d: 30, fare: 530 },
+			{ d: 35, fare: 620 },
+			{ d: 40, fare: 720 },
+			{ d: 45, fare: 810 },
+			{ d: 50, fare: 910 },
+			{ d: 60, fare: 1040 },
+			{ d: 70, fare: 1230 },
+			{ d: 80, fare: 1410 },
+			{ d: 90, fare: 1600 },
+			{ d: 100, fare: 1790 },
+			{ d: 120, fare: 2090 },
+			{ d: 140, fare: 2420 },
+			{ d: 160, fare: 2750 },
+			{ d: 180, fare: 3190 },
+			{ d: 200, fare: 3520 },
+			{ d: 220, fare: 3850 },
+			{ d: 240, fare: 4180 },
+			{ d: 260, fare: 4620 },
+			{ d: 280, fare: 5060 },
+			{ d: 300, fare: 5390 },
+			{ d: 320, fare: 5720 },
+			{ d: 340, fare: 5940 },
+			{ d: 360, fare: 6270 },
+			{ d: 380, fare: 6600 },
+			{ d: 400, fare: 6930 },
+			{ d: 420, fare: 7260 },
+			{ d: 440, fare: 7480 },
+			{ d: 460, fare: 7810 },
+			{ d: 480, fare: 8030 },
+			{ d: 500, fare: 8360 },
+			{ d: 520, fare: 8690 },
+			{ d: 540, fare: 9020 },
+			{ d: 560, fare: 9350 },
+			{ d: 580, fare: 9570 },
+			{ d: 600, fare: 9900 },
+			{ d: 640, fare: 10230 },
+			{ d: 680, fare: 10450 },
+			{ d: 720, fare: 10780 },
+			{ d: 760, fare: 11110 },
+			{ d: 800, fare: 11440 },
+			{ d: 840, fare: 11770 },
+			{ d: 880, fare: 11990 },
+			{ d: 920, fare: 12320 },
+			{ d: 960, fare: 12650 },
+			{ d: 1000, fare: 12980 }
 		]
 	},
 	{
@@ -371,10 +374,16 @@ const fareTable = [
 	{
 		code: 5, // JREポイント
 		list: [
-			{ d: 100, fare: 2160 },
-			{ d: 200, fare: 4620 },
-			{ d: 400, fare: 7940 },
-			{ d: 800, fare: 12110 }
+			{ d: 50, fare: 2000 },
+			{ d: 100, fare: 3000 },
+			{ d: 150, fare: 4500 },
+			{ d: 200, fare: 5500 },
+			{ d: 250, fare: 7000 },
+			{ d: 300, fare: 8000 },
+			{ d: 400, fare: 9500 },
+			{ d: 500, fare: 11000 },
+			{ d: 600, fare: 12500 },
+			{ d: 800, fare: 14000 }
 		]
 	},
 	{
